@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Flashcards!</title>
+  <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+	
+	<div class="container">
+		<button class="btn btn-danger" data-toggle="modal" data-target=".question-form">New Stack</button>
+
+
+
+		<!-- Form to fill out flashcard questions -->
+		<div class="modal fade question-form" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		  <div class="modal-dialog modal-lg">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        	<h4 class="modal-title" id="myModalLabel">Make your stack of cards:</h4>
+		      	</div>
+			    <div class="modal-body">
+			    <!-- 
+			    	Where you'll fill out flashcards.
+					Will be able to add new flashcards questions.
+					On submit it will create a new stack of questions
+			     -->
+				    <form class="form-horizontal new-stack" role="form">
+				    	<section class="stack-form">
+				    		<div>Stack Name: 
+				    			<input type="text" class="stack-name" name="stack-name">
+								<button type="button" class="add-new-question" data-toggle="tooltip" data-placement="right" title="Add Question"><i class="fa fa-plus"></i></button>
+							</div>
+				    		<hr>
+				    		<!-- Template for form questions -->
+				        	<div id="flashcard-form" class="flashcard-form">
+								<div class="form-number"></div>
+				        		<div>Question: <textarea class="form-control" name="question" rows="1"></textarea></div>
+				        		<div class="answer-form">Answer: <input type="text" class="flashcard-form-answer" name="answer"></div>
+				        		<hr>
+				        	</div>
+						</section>
+						<button type="submit" class="btn btn-primary submit-stack">Save changes</button>
+					</form>	
+		      	</div>
+			    <div class="modal-footer">
+			      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      
+			    </div>
+		    </div>
+		  </div>
+		</div>
+
+	</div>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script src="main.js"></script>
+
+</body>
+</html>
