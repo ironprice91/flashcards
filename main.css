@@ -4,7 +4,7 @@ margin-top: 1%;
 }
 
 .stack-name {
-	width: 30%;
+width: 30%;
 }
 
 .flashcard-form-answer {
@@ -13,4 +13,25 @@ width: 100%;
 
 .flashcard-form {
 margin-top: 2%;
+}
+
+.remove-flashcard {
+float: right;
+margin-top: 1%;
+}
+
+
+/*Navbar*/
+.navbar-inverse {
+border-radius: 0;
+}
+
+#toggle-stack {
+display: none;
+}
+
+
+/*ADD WHEN MENU IS CLICKED FOR OTHER NAV*/
+/*nav.navbar.navbar-inverse {
+transform: translateX(17%);
 }

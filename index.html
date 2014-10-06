@@ -8,11 +8,20 @@
   <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <body>
-	
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-inverse" role="navigation">
+	<ul class="nav navbar-nav">
+		<li><a href="#"><i class="fa fa-bars"></i></a></li>
+	</ul>
+		<div class="custom-nav navbar-form">
+				<button class="btn btn-success new-stack-toggle" data-toggle="modal" data-target=".question-form">New Stack</button>
+				<!-- New stack template -->
+				<button id="toggle-stack" class="btn btn-default toggle-stack">Stack name</button>
+		</div>
+	</nav>
+
 	<div class="container">
-		<button class="btn btn-danger" data-toggle="modal" data-target=".question-form">New Stack</button>
-
-
 
 		<!-- Form to fill out flashcard questions -->
 		<div class="modal fade question-form" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -31,19 +40,23 @@
 				    <form class="form-horizontal new-stack" role="form">
 				    	<section class="stack-form">
 				    		<div>Stack Name: 
-				    			<input type="text" class="stack-name" name="stack-name">
+				    			<input type="text" id="stack-name" class="stack-name" name="stack-name" >
 								<button type="button" class="add-new-question" data-toggle="tooltip" data-placement="right" title="Add Question"><i class="fa fa-plus"></i></button>
 							</div>
 				    		<hr>
 				    		<!-- Template for form questions -->
 				        	<div id="flashcard-form" class="flashcard-form">
 								<div class="form-number"></div>
+
+								<button type="button" class="close remove-question"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
 				        		<div>Question: <textarea class="form-control" name="question" rows="1"></textarea></div>
 				        		<div class="answer-form">Answer: <input type="text" class="flashcard-form-answer" name="answer"></div>
+				        		
 				        		<hr>
 				        	</div>
 						</section>
-						<button type="submit" class="btn btn-primary submit-stack">Save changes</button>
+						<button type="submit" class="btn btn-primary submit-stack">Save</button>
 					</form>	
 		      	</div>
 			    <div class="modal-footer">

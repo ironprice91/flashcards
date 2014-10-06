@@ -1,2 +1,9 @@
- ☐ Taking input value and making new card
- ☐ Make new forms for input
+ ☐ Saving the stack
+ ☐ Pushing cards (filled in the forms) into the cards array for Stack name
+ ☐ Fix adding questions button (adds two on the third add)
+ ☐ Remove question/answer function in form
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Taking input value and making new card @done (14-10-06 12:42)
+ ✔ Render the name of the stack to the navbar @done (14-10-06 10:41)
+ ✔ Make new forms for input @done (14-10-06 10:41)

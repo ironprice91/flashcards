@@ -1,8 +1,10 @@
+// key: *** = needs editing
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 
 // Adding a new question field
 $('.add-new-question').on('click', function(){
+
 	var newQuestion = $('#flashcard-form').clone();
 	newQuestion
 	.attr('id', '')
@@ -42,28 +44,52 @@ FlashcardStack.prototype.store = function(flashcard){
 	console.log(cardStack);
 };
 
-FlashcardStack.prototype.formSubmit = function() {
-	var stackName = form.find('[name=stack-name]').val();
-	// var questions = $('.flashcard-form');
+// on change generate new stack button
+var stackSubmit = function(){
+	var stackForm = $('.new-stack');
+	var stackName = stackForm.find('[name=stack-name]').val();
+	var newStack = new FlashcardStack(stackName);
+
+	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
+
+		var that = this;
 	$('.flashcard-form').each(function(element, index){
-		var myStack = this;
-		var form = $('.new-stack');
-		var questions = $(element);
+		var questions = $(this);
 		var question = questions.find('[name=question]').val();
 		var answer = questions.find('[name=answer]').val();
 		var cards = new Flashcard(question, answer);
 		console.log(cards);
-		var stack = new FlashcardStack(stackName, myStack.store(cards) );
-
+		newStack.cards.push(cards);
 	});
-	
-	/*var stackName = questions.find('[name=stack-name]').val();
-	var question = questions.find('[name=question]').val();*/
-	
-	// var cards = new Flashcard(question, answer);
-		
-
+	console.log(newStack);
 };
+
+$('.submit-stack').on('submit', function(event){
+	console.log('test');
+	event.preventDefault();
+	stackSubmit();
+});
+
+// oop form submit
+
+/*FlashcardStack.prototype.onSubmit = function() {
+
+	var stackForm = $('.new-stack');
+	var stackName = stackForm.find('[name=stack-name]').val();
+	var newStack = new FlashcardStack(stackName);
+
+	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
+
+	$('.flashcard-form').each(function(element, index){
+		var questions = $(this);
+		var question = questions.find('[name=question]').val();
+		var answer = questions.find('[name=answer]').val();
+		var cards = new Flashcard(question, answer);
+		console.log(cards);
+		newStack.cards.push(cards);
+	});
+	$('.submit-stack').on('submit', newStack.onSubmit.bind(this));
+};*/
 
 /* Need a function to get input values and make them a stack with flashcards in them already */
 
