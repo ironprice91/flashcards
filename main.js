@@ -55,7 +55,7 @@ FlashcardStack.prototype.store = function(flashcard){
 };
 
 // Taking values and making it into a new stack of cards
-var stackSubmit = function(){
+function stackSubmit(){
 	var stackForm = $('.new-stack');
 	var stackName = stackForm.find('[name=stack-name]').val();
 	var newStack = new FlashcardStack(stackName);
@@ -65,6 +65,19 @@ var stackSubmit = function(){
 	// Clicking the stackname button function
 	$('.toggle-stack').on('click', function(){
 		console.log(newStack.cards);
+		console.log(newStack.cards[0].question);
+		var newFlashCard = $('#flashcard-section').clone();
+		newFlashCard
+		.attr('id', '')
+		.addClass('row')
+		.addClass('flashcard-section')
+		.find('h1')
+		.text(newStack.cards[0].question);
+		$('.container').append(newFlashCard);
+/*		var q = 0;
+		for(q; q < newStack.cards.length; q++){
+			$('body').append('<h1>' +newStack.cards[q].question+ '</h1>');			
+		}*/
 	});
 
 		var that = this;
@@ -92,6 +105,12 @@ $('.new-stack').on('submit', function(event){
 		var answer = questions.find('[name=answer]').val('');
 	});
 });
+
+// function to run when submiting your question 
+var questionSubmit = function(){
+	$('.question').fadeOut();
+	console.log('It works!');
+};
 
 // oop form submit
 /*FlashcardStack.prototype.onSubmit = function() {
