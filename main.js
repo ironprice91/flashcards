@@ -1,4 +1,3 @@
-// key: *** = needs editing
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 
@@ -12,6 +11,11 @@ $('.add-new-question').on('click', function(){
 
 	$('#flashcard-form').append(newQuestion);
 	console.log(newQuestion);
+});
+
+// Toggle stack menu
+$('.toggle-menu').on('click', function(){
+	console.log('test');
 });
 
 //////////////////////
@@ -36,21 +40,32 @@ var FlashcardStack = function(name, cards){
 	this.cards = [];
 };
 
+FlashcardStack.prototype.renderCards = function() {
+	var i = 0;
+	for(i; i < this.cards.length; i++){
+		this.cards[i].render();	
+	}
+};
+
 // function to store the flashcard arguement
 FlashcardStack.prototype.store = function(flashcard){
 	var cardStack = this.cards;
 	cardStack.push(flashcard);
-	$('.submit-stack').on('submit', this.formSubmit.bind(this));
 	console.log(cardStack);
 };
 
-// on change generate new stack button
+// Taking values and making it into a new stack of cards
 var stackSubmit = function(){
 	var stackForm = $('.new-stack');
 	var stackName = stackForm.find('[name=stack-name]').val();
 	var newStack = new FlashcardStack(stackName);
 
 	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
+
+	// Clicking the stackname button function
+	$('.toggle-stack').on('click', function(){
+		console.log(newStack.cards);
+	});
 
 		var that = this;
 	$('.flashcard-form').each(function(element, index){
@@ -64,14 +79,21 @@ var stackSubmit = function(){
 	console.log(newStack);
 };
 
-$('.submit-stack').on('submit', function(event){
-	console.log('test');
+// Submit stack function and remove field values
+$('.new-stack').on('submit', function(event){
 	event.preventDefault();
 	stackSubmit();
+	var stackForm = $('.new-stack');
+	$('.modal-backdrop, .question-form').hide();
+	var stackName = stackForm.find('[name=stack-name]').val('');
+	$('.flashcard-form').each(function(element, index){
+		var questions = $(this);
+		var question = questions.find('[name=question]').val('');
+		var answer = questions.find('[name=answer]').val('');
+	});
 });
 
 // oop form submit
-
 /*FlashcardStack.prototype.onSubmit = function() {
 
 	var stackForm = $('.new-stack');
@@ -91,7 +113,6 @@ $('.submit-stack').on('submit', function(event){
 	$('.submit-stack').on('submit', newStack.onSubmit.bind(this));
 };*/
 
-/* Need a function to get input values and make them a stack with flashcards in them already */
 
 ////////////////
 // TEST UNITS //
@@ -99,5 +120,5 @@ $('.submit-stack').on('submit', function(event){
 
 // Flashcard my instance
 var myQuestion = new Flashcard('What is the meaning of life?', '42');
-var myStack = new FlashcardStack('', myQuestion);
-
+var myTest = new Flashcard('Another question?', 'blah');
+var myStack = new FlashcardStack('Test Stack', myQuestion);

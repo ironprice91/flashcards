@@ -1,9 +1,13 @@
- ☐ Saving the stack
- ☐ Pushing cards (filled in the forms) into the cards array for Stack name
+ ☐ Making sidebar to hold stack
+ ☐ Saving the stack and accessing them by clicking stack button
  ☐ Fix adding questions button (adds two on the third add)
  ☐ Remove question/answer function in form
+ ☐ Only show focused question
+ ☐ Add results pages when done with cards
+ ☐ Form validation
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Pushing cards (filled in the forms) into the cards array for Stack name @done (14-10-06 14:29)
  ✔ Taking input value and making new card @done (14-10-06 12:42)
  ✔ Render the name of the stack to the navbar @done (14-10-06 10:41)
  ✔ Make new forms for input @done (14-10-06 10:41)

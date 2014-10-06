@@ -12,7 +12,7 @@
 	<!-- Navbar -->
 	<nav class="navbar navbar-inverse" role="navigation">
 	<ul class="nav navbar-nav">
-		<li><a href="#"><i class="fa fa-bars"></i></a></li>
+		<li><a class="toggle-menu" href="#"><i class="fa fa-bars"></i></a></li>
 	</ul>
 		<div class="custom-nav navbar-form">
 				<button class="btn btn-success new-stack-toggle" data-toggle="modal" data-target=".question-form">New Stack</button>
@@ -37,7 +37,7 @@
 					Will be able to add new flashcards questions.
 					On submit it will create a new stack of questions
 			     -->
-				    <form class="form-horizontal new-stack" role="form">
+			    	<form class="form-horizontal new-stack" role="form">
 				    	<section class="stack-form">
 				    		<div>Stack Name: 
 				    			<input type="text" id="stack-name" class="stack-name" name="stack-name" >
@@ -56,13 +56,12 @@
 				        		<hr>
 				        	</div>
 						</section>
-						<button type="submit" class="btn btn-primary submit-stack">Save</button>
-					</form>	
 		      	</div>
-			    <div class="modal-footer">
-			      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			      
-			    </div>
+				    <div class="modal-footer">
+				      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      	<button type="submit" class="btn btn-primary submit-stack">Save</button>
+				    </div>
+				    </form>	
 		    </div>
 		  </div>
 		</div>
