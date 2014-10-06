@@ -26,12 +26,6 @@ var Flashcard = function(question, answer){
 	this.answer = answer;
 };
 
-Flashcard.prototype.render = function(stack){
-	$('body').append('<h1>'+ this.question + '</h1>');
-	$('body').append('<h3>'+ this.answer + '</h3>');
-};
-
-
 ////////////////////////////
 // FLASHCARD STACK CLASS //
 ////////////////////////////
@@ -64,23 +58,19 @@ function stackSubmit(){
 
 	// Clicking the stackname button function
 	$('.toggle-stack').on('click', function(){
-		console.log(newStack.cards);
-		console.log(newStack.cards[0].question);
-		var newFlashCard = $('#flashcard-section').clone();
-		newFlashCard
-		.attr('id', '')
-		.addClass('row')
-		.addClass('flashcard-section')
-		.find('h1')
-		.text(newStack.cards[0].question);
-		$('.container').append(newFlashCard);
-/*		var q = 0;
-		for(q; q < newStack.cards.length; q++){
-			$('body').append('<h1>' +newStack.cards[q].question+ '</h1>');			
-		}*/
+		var i = 0;
+		for(i;i<newStack.cards.length;i++){
+			var newFlashCard = $('#flashcard-section').clone();
+			newFlashCard
+			.attr('id', '')
+			.addClass('row')
+			.addClass('flashcard-section')
+			.find('h1')
+			.text(newStack.cards[i].question);
+			$('.container').append(newFlashCard);
+		}
 	});
 
-		var that = this;
 	$('.flashcard-form').each(function(element, index){
 		var questions = $(this);
 		var question = questions.find('[name=question]').val();
