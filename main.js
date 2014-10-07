@@ -101,6 +101,12 @@ function stackSubmit(){
 			var that = $(this);
 			var answerCheck = that.val();
 			console.log(answerCheck);
+			// Checking answer section
+			if(answerCheck === newStack.cards[0].answer){
+				console.log('yay!');
+			} else {
+				console.log('nay');
+			}
 				});
 			});
 		});
