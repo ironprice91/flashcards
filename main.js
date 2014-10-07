@@ -1,3 +1,21 @@
+// array for the pie chart
+// Find uniq values(1) in correct answer and put into array
+// put it as the value of series below
+/*var correctAnswers = [];
+
+var test = [1,3];
+ var data = {
+  series: test
+};
+var sum = function(a, b) { return a + b };
+
+Chartist.Pie('.ct-chart', data, {
+  labelInterpolationFnc: function(value) {
+    return Math.round(value / data.series.reduce(sum) * 100) + '%';
+  }
+});*/
+/***END JS FOR PIECHART**/
+
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 
@@ -23,8 +41,7 @@ $('.add-new-question').on('click', function(){
 
 });
 
-// array for the pie chart
-var correctAnswers = [];
+
 
 // Toggle stack menu
 $('.toggle-menu').on('click', function(){
