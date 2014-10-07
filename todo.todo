@@ -4,9 +4,11 @@ Things to do:
  ☐ Remove question/answer function in form
  ☐ Only show focused question
  ☐ Add results pages when done with cards
- ☐ Form validation
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Form validation @done (14-10-07 10:06) @project(Things to do)
+ ✔ Make test section @done (14-10-07 09:58) @project(Things to do)
+ ✔ Make review section @done (14-10-07 09:44) @project(Things to do)
  ✔ Make Template for answering questions @done (14-10-06 16:59)
  ✔ Saving the stack and accessing them by clicking stack button @done (14-10-06 16:29)
  ✔ Pushing cards (filled in the forms) into the cards array for Stack name @done (14-10-06 14:29)

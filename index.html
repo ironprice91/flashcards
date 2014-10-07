@@ -40,7 +40,7 @@
 			    	<form class="form-horizontal new-stack" role="form">
 				    	<section class="stack-form">
 				    		<div>Stack Name: 
-				    			<input type="text" id="stack-name" class="stack-name" name="stack-name" >
+				    			<input type="text" id="stack-name" class="stack-name" name="stack-name" required>
 								<button type="button" class="add-new-question" data-toggle="tooltip" data-placement="right" title="Add Question"><i class="fa fa-plus"></i></button>
 							</div>
 				    		<hr>
@@ -50,8 +50,8 @@
 
 								<button type="button" class="close remove-question"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 
-				        		<div>Question: <textarea class="form-control" name="question" rows="1"></textarea></div>
-				        		<div class="answer-form">Answer: <input type="text" class="flashcard-form-answer" name="answer"></div>
+				        		<div>Question: <textarea class="form-control" name="question" rows="1" required></textarea></div>
+				        		<div class="answer-form">Answer: <input type="text" class="flashcard-form-answer" name="answer" required></div>
 				        		
 				        		<hr>
 				        	</div>
@@ -72,6 +72,19 @@
 			<h1 class="row question">What is the meaning of life?</h1>
 			<input class="row answer" type="text" placeholder="Answer...">
 		</form>
+	</section>
+
+	<!-- Template for review section -->
+	<section id="review-section" class="review-section">
+		<div class="review-show">
+			<h1 class="review-header">Review: </h1>
+			<button class="btn btn-success start-quiz">Go!</button>
+			<hr>
+		</div>
+		<div id="answer-section" class="answer-section">
+			<h2></h2>
+			<h4></h4>
+		</div>
 	</section>
 
 	</div>

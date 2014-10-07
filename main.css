@@ -30,6 +30,23 @@ border-radius: 0;
 display: none;
 }
 
+/*Review section*/
+#answer-section {
+display: none;
+}
+
+.answer-section {
+border-bottom: 1px dotted rgb(119, 119, 119);
+}
+
+.review-show {
+display: none;
+}
+
+.start-quiz {
+display: none;
+}
+
 /* Question/Answer section*/
 .question {
 font-size: 10rem;

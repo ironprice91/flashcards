@@ -26,6 +26,22 @@ var Flashcard = function(question, answer){
 	this.answer = answer;
 };
 
+Flashcard.prototype.render = function(stack){
+	$('.review-show').show();
+	$('.start-quiz').show();
+	var reviewSection = $('#answer-section').clone();
+	reviewSection
+	.attr('id', '')
+	.addClass('answer-section')
+	.find('h2')
+	.text(this.question);
+	reviewSection
+	.find('h4')
+	.text(this.answer);
+	$('.review-section').append(reviewSection);
+};
+
+
 ////////////////////////////
 // FLASHCARD STACK CLASS //
 ////////////////////////////
@@ -41,12 +57,19 @@ FlashcardStack.prototype.renderCards = function() {
 	}
 };
 
+
 // function to store the flashcard arguement
 FlashcardStack.prototype.store = function(flashcard){
 	var cardStack = this.cards;
 	cardStack.push(flashcard);
 	console.log(cardStack);
 };
+
+// Hacky way to hide the review section on start quiz
+$('.start-quiz').on('click', function(){
+	$('.review-show').hide();
+	$('.answer-section').hide();
+});
 
 // Taking values and making it into a new stack of cards
 function stackSubmit(){
@@ -57,7 +80,7 @@ function stackSubmit(){
 	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
 
 	// Clicking the stackname button function
-	$('.toggle-stack').on('click', function(){
+	$('.start-quiz').on('click', function(){
 		var i = 0;
 		for(i;i<newStack.cards.length;i++){
 			var newFlashCard = $('#flashcard-section').clone();
@@ -80,7 +103,15 @@ function stackSubmit(){
 		newStack.cards.push(cards);
 	});
 	console.log(newStack);
+
+	// Render review section on click of the stack
+	$('.toggle-stack').on('click', function(){
+		console.log('test');
+		newStack.renderCards();
+	});
+
 };
+
 
 // Submit stack function and remove field values
 $('.new-stack').on('submit', function(event){
@@ -99,6 +130,7 @@ $('.new-stack').on('submit', function(event){
 // function to run when submiting your question 
 var questionSubmit = function(){
 	$('.question').fadeOut();
+	
 	console.log('It works!');
 };
 
