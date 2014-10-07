@@ -30,6 +30,11 @@ border-radius: 0;
 display: none;
 }
 
+/*.toggle-stack { /Maybe to add later
+border: 2px solid rgb(91, 136, 255);
+border-top-color: rgb(255, 57, 57);
+}*/
+
 /*Review section*/
 #answer-section {
 display: none;
@@ -56,6 +61,14 @@ font-size: 10rem;
 width: 100%;
 height: 14rem;
 font-size: 10rem;
+}
+
+.fa-check-circle-o {
+color: #449D44;
+}
+
+.fa.fa-times {
+color: #C9302C;
 }
 
 #flashcard-section{

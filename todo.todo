@@ -2,10 +2,12 @@ Things to do:
  ☐ Making sidebar to hold stack
  ☐ Fix adding questions button (adds two on the third add)
  ☐ Remove question/answer function in form
- ☐ Only show focused question
  ☐ Add results pages when done with cards
+ ☐ Verifaction on answers (right/wrong)
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ On question answer move to next question @done (14-10-07 15:12) @project(Things to do)
+ ✔ Only show focused question @done (14-10-07 15:12) @project(Things to do)
  ✔ Rendering questions on button GO! press @done (14-10-07 11:59) @project(Things to do)
  ✔ Form validation @done (14-10-07 10:06) @project(Things to do)
  ✔ Make test section @done (14-10-07 09:58) @project(Things to do)

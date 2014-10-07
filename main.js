@@ -10,7 +10,17 @@ $('.add-new-question').on('click', function(){
 	.addClass('flashcard-form');
 
 	$('#flashcard-form').append(newQuestion);
-	console.log(newQuestion);
+
+	// Remove question
+	$('.flashcard-form').each(function(element, index){
+		var that = this;
+		$('.remove-question').each(function(element, index){
+			$(this).on('click', function(){
+				console.log( that);
+			});
+		});
+	});
+
 });
 
 // Toggle stack menu
@@ -91,7 +101,13 @@ function stackSubmit(){
 			.find('h1')
 			.text(newStack.cards[i].question);
 			$('.container').append(newFlashCard);
+				if($('.question-answer').eq(1)){
+					$('.question-answer').eq(2).hide();
+			}
+			//$('.question-answer').eq(2).hide();
 		}
+
+
 
 		// Checking if the answer is correct
 		$('.question-answer').each(function(element, index){
@@ -100,17 +116,23 @@ function stackSubmit(){
 			$('.answer').each(function(element, index){
 			var that = $(this);
 			var answerCheck = that.val();
-			console.log(answerCheck);
 			// Checking answer section
-			if(answerCheck === newStack.cards[0].answer){
-				console.log('yay!');
-			} else {
-				console.log('nay');
+			for(var i = 0; i < newStack.cards.length; i++){
+				if(answerCheck === newStack.cards[i].answer){
+					$('.question').append('<i class="fa fa-check-circle-o"></i>');
+					//var test = $('.question').append('<i class="fa fa-check-circle-o"></i>');
+					$('.question-answer').eq(i+1).slideUp(300)
+					.fadeOut();
+					$('.question-answer').eq(i+2).show(300);
+				} else {
+					//$('.question').append('<i class="fa fa-times"></i>');
+					console.log('nay!');
+				}
 			}
-				});
 			});
 		});
 	});
+});
 
 
 	$('.flashcard-form').each(function(element, index){
@@ -125,7 +147,6 @@ function stackSubmit(){
 
 	// Render review section on click of the stack
 	$('.toggle-stack').on('click', function(){
-		console.log('test');
 		newStack.renderCards();
 	});
 
