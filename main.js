@@ -79,7 +79,7 @@ function stackSubmit(){
 
 	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
 
-	// Clicking the stackname button function
+	// Clicking the stackname button GO! function
 	$('.start-quiz').on('click', function(){
 		var i = 0;
 		for(i;i<newStack.cards.length;i++){
@@ -92,7 +92,20 @@ function stackSubmit(){
 			.text(newStack.cards[i].question);
 			$('.container').append(newFlashCard);
 		}
+
+		// Checking if the answer is correct
+		$('.question-answer').each(function(element, index){
+			$(this).on('submit', function(event){
+			event.preventDefault();
+			$('.answer').each(function(element, index){
+			var that = $(this);
+			var answerCheck = that.val();
+			console.log(answerCheck);
+				});
+			});
+		});
 	});
+
 
 	$('.flashcard-form').each(function(element, index){
 		var questions = $(this);
@@ -127,12 +140,18 @@ $('.new-stack').on('submit', function(event){
 	});
 });
 
-// function to run when submiting your question 
-var questionSubmit = function(){
-	$('.question').fadeOut();
-	
+// submit forms
+
+
+/*var questionSubmit = function(){
 	console.log('It works!');
-};
+	$('.answer').each(function(element, index){
+		var that = $(this);
+		var answerCheck = that.val();
+		console.log(answerCheck);
+	});
+};	*/
+
 
 // oop form submit
 /*FlashcardStack.prototype.onSubmit = function() {
