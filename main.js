@@ -23,6 +23,9 @@ $('.add-new-question').on('click', function(){
 
 });
 
+// array for the pie chart
+var correctAnswers = [];
+
 // Toggle stack menu
 $('.toggle-menu').on('click', function(){
 	console.log('test');
@@ -100,35 +103,34 @@ function stackSubmit(){
 			.addClass('flashcard-section')
 			.find('h1')
 			.text(newStack.cards[i].question);
+
 			$('.container').append(newFlashCard);
-				if($('.question-answer').eq(1)){
-					$('.question-answer').eq(2).hide();
+				if($('.question-answer').eq(i+1)){
+					$('.question-answer').eq(i+i).hide();
 			}
-			//$('.question-answer').eq(2).hide();
 		}
-
-
 
 		// Checking if the answer is correct
 		$('.question-answer').each(function(element, index){
 			$(this).on('submit', function(event){
 			event.preventDefault();
 			$('.answer').each(function(element, index){
-			var that = $(this);
-			var answerCheck = that.val();
-			// Checking answer section
-			for(var i = 0; i < newStack.cards.length; i++){
-				if(answerCheck === newStack.cards[i].answer){
-					$('.question').append('<i class="fa fa-check-circle-o"></i>');
-					//var test = $('.question').append('<i class="fa fa-check-circle-o"></i>');
-					$('.question-answer').eq(i+1).slideUp(300)
-					.fadeOut();
-					$('.question-answer').eq(i+2).show(300);
-				} else {
-					//$('.question').append('<i class="fa fa-times"></i>');
-					console.log('nay!');
+				var that = $(this);
+				var answerCheck = that.val();
+				// Checking answer section
+				for(var i = 0; i < newStack.cards.length; i++){
+					if(answerCheck === newStack.cards[i].answer){
+						//$('.question').append('<i class="fa fa-check-circle-o"></i>');
+						//var test = $('.question').append('<i class="fa fa-check-circle-o"></i>');
+						var questionAnswer = $('.question-answer');
+						questionAnswer.eq(i+1).slideUp(300)
+						.css('display','none');
+						// fadeOut(400);
+						questionAnswer.eq(i+2).show(300);
+						correctAnswers.push(1-i);
+					} 
 				}
-			}
+				//console.log(_.last(newStack.cards));
 			});
 		});
 	});
@@ -166,19 +168,6 @@ $('.new-stack').on('submit', function(event){
 		var answer = questions.find('[name=answer]').val('');
 	});
 });
-
-// submit forms
-
-
-/*var questionSubmit = function(){
-	console.log('It works!');
-	$('.answer').each(function(element, index){
-		var that = $(this);
-		var answerCheck = that.val();
-		console.log(answerCheck);
-	});
-};	*/
-
 
 // oop form submit
 /*FlashcardStack.prototype.onSubmit = function() {
