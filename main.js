@@ -1,11 +1,10 @@
 // array for the pie chart
 // Find uniq values(1) in correct answer and put into array
 // put it as the value of series below
-/*var correctAnswers = [];
+/*
 
-var test = [1,3];
  var data = {
-  series: test
+  series: correctAnswers
 };
 var sum = function(a, b) { return a + b };
 
@@ -15,7 +14,11 @@ Chartist.Pie('.ct-chart', data, {
   }
 });*/
 /***END JS FOR PIECHART**/
+
 var correctAnswers = [];
+var wrongAnswers = [];
+_.uniq(correctAnswers);
+
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 
@@ -27,7 +30,7 @@ $('.add-new-question').on('click', function(){
 	.attr('id', '')
 	.addClass('flashcard-form');
 
-	$('#flashcard-form').append(newQuestion);
+	$('.stack-form').append(newQuestion);
 
 	// Remove question
 	$('.flashcard-form').each(function(element, index){
@@ -101,11 +104,15 @@ $('.start-quiz').on('click', function(){
 	$('.answer-section').hide();
 });
 
+// holding flash card views
+var flashcards = [];
+
 // Taking values and making it into a new stack of cards
 function stackSubmit(){
 	var stackForm = $('.new-stack');
 	var stackName = stackForm.find('[name=stack-name]').val();
 	var newStack = new FlashcardStack(stackName);
+
 
 	$('.sidebar').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
 
@@ -120,7 +127,7 @@ function stackSubmit(){
 			.addClass('flashcard-section')
 			.find('h1')
 			.text(newStack.cards[i].question);
-
+			flashcards.push(newFlashCard);
 			$('.container').append(newFlashCard);
 				if($('.question-answer').eq(i+1)){
 					$('.question-answer').eq(i+i).hide();
@@ -140,18 +147,22 @@ function stackSubmit(){
 					// Checking answer section
 						for(var i = 0; i < newStack.cards.length; i++){
 							if(answer.eq(i).val() === newStack.cards[i].answer){
+								question.eq(i).append('<i class="fa fa-check-circle-o"></i>');
 								questionAnswer.eq(i).slideUp(300);
+								correctAnswers.push(1);
 								if(null === null){
 									for(var i = 0; i < newStack.cards.length; i++){
-										$('.question-answer').eq(i+i).show();
-										$('.question').eq(i+i).slideDown(300);						
-										$('.answer').eq(i+i).show();
-									}
+										//$('.container').append($('.question-answer').eq(i).show());
+										for(var q = 1; q <= newStack.cards.length; q++){
+											$('.question-answer').eq(q+1).show();
+											//$('.question').eq(q+1).slideDown(300);					
+											$('.answer').eq(q+1).show();
+										}
 								}
-							} else if(answer.eq(i).val() !== newStack.cards[i].answer){
-							console.log('something');
+							} 
+						} else {
+							wrongAnswers.push(1);
 						}
-					correctAnswers.push(i);
 					}
 				});
 			});
