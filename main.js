@@ -134,6 +134,34 @@ function stackSubmit(){
 			}
 		}
 
+
+//Moving to each question attempt on refactoring code below /*****/
+/*
+		$('.question-answer').each(function(element, index){
+			var that = $(this);
+			that.on('submit', function(event){
+				event.preventDefault();
+				console.log(newStack.cards[0].answer);
+				if($('.answer').eq(1).val() === newStack.cards[0].answer){
+					that.slideUp(300);
+					console.log(that.index +  1);
+				}
+				for(var i = 0; i < flashcards.length; i++){
+					console.log(newStack.cards[0].answer);
+					if($('.answer').eq(1).val() === newStack.cards[0].answer){
+						that.slideUp(300);
+						console.log('test');
+						$('.question-answer').eq(i+1).show();
+					}
+				}
+				if($('.question-answer').first()){
+						$(this).hide();
+					}
+			});
+		});*/
+
+
+		/*********/
 		// Checking if the answer is correct
 		$('.question-answer').each(function(element, index){
 			var questionAnswer = $(this);
@@ -167,7 +195,7 @@ function stackSubmit(){
 				});
 			});
 		});
-	});
+	});//
 });
 
 
