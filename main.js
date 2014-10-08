@@ -1,10 +1,12 @@
 // array for the pie chart
 // Find uniq values(1) in correct answer and put into array
 // put it as the value of series below
-/*
+$('.saved-stacks').on('click', function(){
+	$('.pie-show').removeClass('pie-hide');
+});
 
  var data = {
-  series: correctAnswers
+  series: [5,2]
 };
 var sum = function(a, b) { return a + b };
 
@@ -12,7 +14,7 @@ Chartist.Pie('.ct-chart', data, {
   labelInterpolationFnc: function(value) {
     return Math.round(value / data.series.reduce(sum) * 100) + '%';
   }
-});*/
+});
 /***END JS FOR PIECHART**/
 
 var correctAnswers = [];
@@ -31,16 +33,6 @@ $('.add-new-question').on('click', function(){
 	.addClass('flashcard-form');
 
 	$('.stack-form').append(newQuestion);
-
-	// Remove question
-	$('.flashcard-form').each(function(element, index){
-		var that = this;
-		$('.remove-question').each(function(element, index){
-			$(this).on('click', function(){
-				console.log( that);
-			});
-		});
-	});
 
 });
 
@@ -136,27 +128,22 @@ function stackSubmit(){
 
 
 //Moving to each question attempt on refactoring code below /*****/
-/*
-		$('.question-answer').each(function(element, index){
+
+/*		$('.question-answer').each(function(element, index){
 			var that = $(this);
 			that.on('submit', function(event){
 				event.preventDefault();
 				console.log(newStack.cards[0].answer);
 				if($('.answer').eq(1).val() === newStack.cards[0].answer){
+					$('.question').append('<i class="fa fa-check-circle-o"></i>');
 					that.slideUp(300);
-					console.log(that.index +  1);
+					console.log(that.eq(1));
+					$('.question-answer').eq(2).show(300);
+				} else {
+					$('.question').append('<i class="fa fa-times"></i>');
+					that.slideUp(300);
+					$('.question-answer').eq(2).show(300);
 				}
-				for(var i = 0; i < flashcards.length; i++){
-					console.log(newStack.cards[0].answer);
-					if($('.answer').eq(1).val() === newStack.cards[0].answer){
-						that.slideUp(300);
-						console.log('test');
-						$('.question-answer').eq(i+1).show();
-					}
-				}
-				if($('.question-answer').first()){
-						$(this).hide();
-					}
 			});
 		});*/
 
@@ -195,7 +182,7 @@ function stackSubmit(){
 				});
 			});
 		});
-	});//
+	});
 });
 
 

@@ -115,3 +115,17 @@ color: #C9302C;
 #flashcard-section{
 display: none;
 }
+
+/*Pie chart section*/
+.pie-hide {
+	display:none;
+	opacity: 0;
+}
+
+.pie-show {
+	display: block;
+}
+
+.ct-chart.ct-double-octave>svg, .ct-chart.ct-double-octave {
+z-index: -1;
+}
