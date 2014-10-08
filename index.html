@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>Flashcards!</title>
   <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two' rel='stylesheet' type='text/css'>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="bower_components/chartist/libdist/chartist.min.css">
   <link rel="stylesheet" type="text/css" href="main.css">
@@ -12,26 +13,27 @@
 
 	<!-- Navbar -->
 	<nav class="navbar navbar-inverse" role="navigation">
-	<ul class="nav navbar-nav">
-		<li><a class="toggle-menu" href="#"><i class="fa fa-bars"></i></a></li>
-	</ul>
+		<ul class="nav navbar-nav">
+			<a class="navbar-brand" href="#">Stacks on Stacks</a>
+		</ul>
 		<div class="custom-nav navbar-form">
-				<button class="btn btn-success new-stack-toggle" data-toggle="modal" data-target=".question-form">New Stack</button>
+				<button class="btn btn-success new-stack-toggle" data-toggle="modal" data-target=".question-form"><i class="fa fa-plus"></i> New Stack</button>
 				<!-- New stack template -->
 				<button id="toggle-stack" class="btn btn-default toggle-stack">Stack name</button>
+	<a class="navbar-right sign-out"><i class="fa fa-sign-out"></i> Logout
+    </a>
 		</div>
+
 	</nav>
 
 	<div class="container">
-
-
 
 		<!-- Form to fill out flashcard questions -->
 		<div class="modal fade question-form" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		  <div class="modal-dialog modal-lg">
 		    <div class="modal-content">
 		    	<div class="modal-header">
-		        	<h4 class="modal-title" id="myModalLabel">Make your stack of cards:</h4>
+		        	<h4 class="modal-title" id="myModalLabel"><i class="fa fa-pencil"></i> Create your stack of cards:</h4>
 		      	</div>
 			    <div class="modal-body">
 			    <!-- 
