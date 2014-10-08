@@ -129,29 +129,31 @@ function stackSubmit(){
 
 		// Checking if the answer is correct
 		$('.question-answer').each(function(element, index){
-			$(this).on('submit', function(event){
-			event.preventDefault();
-			$('.answer').each(function(element, index){
-				var that = $(this);
-				var answerCheck = that.val();
-				// Checking answer section
-				for(var i = 0; i < newStack.cards.length; i++){
-					if(answerCheck === newStack.cards[i].answer){
-						//$('.question').append('<i class="fa fa-check-circle-o"></i>');
-						//var test = $('.question').append('<i class="fa fa-check-circle-o"></i>');
-						var question = $('.question');
-						var answer = $('.answer');
-
-						question.eq(i+1).slideUp(300);
-						answer.eq(i+1).slideUp(300);
-						// fadeOut(400);
-						if(question.eq(i+1).slideUp(300)){
-							$('.question-answer').eq(i+2).show();
+			var questionAnswer = $(this);
+			questionAnswer.on('submit', function(event){
+				event.preventDefault();
+				$('.answer').each(function(element, index){
+					console.log(this);
+					var answer = $(this);
+					$('.question').each(function(element,index){
+						var question = $(this);
+					// Checking answer section
+						for(var i = 0; i < newStack.cards.length; i++){
+							if(answer.eq(i).val() === newStack.cards[i].answer){
+								questionAnswer.eq(i).slideUp(300);
+								if(null === null){
+									for(var i = 0; i < newStack.cards.length; i++){
+										$('.question-answer').eq(i+i).show();
+										$('.question').eq(i+i).slideDown(300);						
+										$('.answer').eq(i+i).show();
+									}
+								}
+							} else if(answer.eq(i).val() !== newStack.cards[i].answer){
+							console.log('something');
 						}
-						correctAnswers.push(1-i);
-					} 
-				}
-				//console.log(_.last(newStack.cards));
+					correctAnswers.push(i);
+					}
+				});
 			});
 		});
 	});
