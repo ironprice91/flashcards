@@ -18,8 +18,9 @@
 		</ul>
 		<div class="custom-nav navbar-form">
 				<button class="btn btn-success new-stack-toggle" data-toggle="modal" data-target=".question-form"><i class="fa fa-plus"></i> New Stack</button>
-				<!-- New stack template -->
-				<button id="toggle-stack" class="btn btn-default toggle-stack">Stack name</button>
+				<button class="btn btn-default toggle-menu"><i class="fa fa-bars"></i> My Stacks</button>
+				<button class="btn btn-default"><i class="fa fa-star"></i> Saved Stacks</button>
+			
 	<a class="navbar-right sign-out"><i class="fa fa-sign-out"></i> Logout
     </a>
 		</div>
@@ -27,6 +28,14 @@
 	</nav>
 
 	<div class="container">
+
+		<!-- Card stack holder -->
+	<section class="navbar navbar-inverse sidebar">
+		<h1 class="sidebar-header">Stacks</h1>
+		<!-- New stack template -->
+		<button id="toggle-stack" class="btn btn-default toggle-stack">Stack name</button>
+	</section>
+
 
 		<!-- Form to fill out flashcard questions -->
 		<div class="modal fade question-form" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -54,8 +63,8 @@
 
 								<button type="button" class="close remove-question"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 
-				        		<div>Question: <input class="form-control" name="question" rows="1" required></div>
-				        		<div class="answer-form">Answer: <input type="text" class="flashcard-form-answer form-control" name="answer" required></div>
+				        		<div>Question: <input class="form-control new-stack-form" name="question" rows="1" required></div>
+				        		<div class="answer-form">Answer: <input type="text" class="flashcard-form-answer form-control new-stack-form" name="answer" required></div>
 				        		
 				        		<hr>
 				        	</div>
@@ -70,7 +79,7 @@
 		  </div>
 		</div>
 
-	<!-- Template for Question/Answer thing -->
+	<!-- Template for Question/Answer section -->
 	<section id="flashcard-section" class="row flashcard-section">
 		<form class="question-answer">
 			<h1 class="row question">test?<i class="fa fa-check-circle-o"></i><i class="fa fa-times"></i></h1>
@@ -83,6 +92,7 @@
 		<div class="review-show">
 			<h1 class="review-header">Review: </h1>
 			<button class="btn btn-success start-quiz">Go!</button>
+			<button class="btn btn-warning edit-quiz">Edit</button>
 			<hr>
 		</div>
 		<div id="answer-section" class="answer-section">

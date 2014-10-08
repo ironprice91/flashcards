@@ -15,7 +15,7 @@ Chartist.Pie('.ct-chart', data, {
   }
 });*/
 /***END JS FOR PIECHART**/
-
+var correctAnswers = [];
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 
@@ -45,7 +45,7 @@ $('.add-new-question').on('click', function(){
 
 // Toggle stack menu
 $('.toggle-menu').on('click', function(){
-	console.log('test');
+	$('.sidebar').toggleClass('sidebar-show');
 });
 
 //////////////////////
@@ -107,7 +107,7 @@ function stackSubmit(){
 	var stackName = stackForm.find('[name=stack-name]').val();
 	var newStack = new FlashcardStack(stackName);
 
-	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
+	$('.sidebar').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
 
 	// Clicking the stackname button GO! function
 	$('.start-quiz').on('click', function(){
@@ -139,11 +139,15 @@ function stackSubmit(){
 					if(answerCheck === newStack.cards[i].answer){
 						//$('.question').append('<i class="fa fa-check-circle-o"></i>');
 						//var test = $('.question').append('<i class="fa fa-check-circle-o"></i>');
-						var questionAnswer = $('.question-answer');
-						questionAnswer.eq(i+1).slideUp(300)
-						.css('display','none');
+						var question = $('.question');
+						var answer = $('.answer');
+
+						question.eq(i+1).slideUp(300);
+						answer.eq(i+1).slideUp(300);
 						// fadeOut(400);
-						questionAnswer.eq(i+2).show(300);
+						if(question.eq(i+1).slideUp(300)){
+							$('.question-answer').eq(i+2).show();
+						}
 						correctAnswers.push(1-i);
 					} 
 				}

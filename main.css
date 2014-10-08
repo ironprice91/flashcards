@@ -26,6 +26,10 @@ float: right;
 margin-top: 1%;
 }
 
+.new-stack-form {
+font-size: inherit;
+}
+
 
 /*Navbar*/
 .navbar-inverse {
@@ -43,6 +47,33 @@ display: none;
 .sign-out {
 color: white;
 }
+
+.fa.fa-star {
+color: gold;
+}
+
+/*Sidebar Stack holder*/
+.sidebar {
+position: fixed;
+top: 0px;
+left: 0px;
+width: 7.5em;
+height: 100%;
+padding: 1.4em;
+transform: translateX(-100%);
+}
+
+.sidebar-show {
+transform: translateX(0);
+}
+.sidebar-hide {
+
+}
+
+.sidebar-header {
+color: snow;
+}
+
 
 /*.toggle-stack { /Maybe to add later
 border: 2px solid rgb(91, 136, 255);
