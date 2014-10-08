@@ -66,19 +66,10 @@ transform: translateX(-100%);
 .sidebar-show {
 transform: translateX(0);
 }
-.sidebar-hide {
-
-}
 
 .sidebar-header {
 color: snow;
 }
-
-
-/*.toggle-stack { /Maybe to add later
-border: 2px solid rgb(91, 136, 255);
-border-top-color: rgb(255, 57, 57);
-}*/
 
 /*Review section*/
 #answer-section {
@@ -123,9 +114,4 @@ color: #C9302C;
 
 #flashcard-section{
 display: none;
-}
-
-/*ADD WHEN MENU IS CLICKED FOR OTHER NAV*/
-/*nav.navbar.navbar-inverse {
-transform: translateX(17%);
 }
