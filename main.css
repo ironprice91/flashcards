@@ -57,6 +57,11 @@ color: gold;
 display: none;
 }
 
+.toggle-settings {
+color: snow;
+margin-right: 23px;
+}
+
 /*Sidebar Stack holder*/
 .sidebar {
 position: fixed;
