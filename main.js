@@ -178,7 +178,6 @@ function stackSubmit(){
 		});		
 });
 
-
 	$('.flashcard-form').each(function(element, index){
 		var questions = $(this);
 		var question = questions.find('[name=question]').val();
@@ -224,11 +223,13 @@ $('.new-stack').on('submit', function(event){
 	});
 });
 
+$('.remove-question').on('click', function(){
+	console.log('blah');
+});
 
 ////////////////
 // TEST UNITS //
 ////////////////
-
 // Flashcard my instance
 var myQuestion = new Flashcard('What is the meaning of life?', '42');
 var myTest = new Flashcard('Another question?', 'blah');
