@@ -48,6 +48,7 @@ $('.test-pie').one('click', function(){
 	renderPiechart();
 	$('.show-results').removeClass('show-results');
 	$('.pie-show').toggleClass('pie-hide');
+	$('.review-header').append('<h1 class="ratio-results">You answered: ' + (correctAnswers.length-1) + '/' + flashcards.length + ' questions correctly!</h1>');
 });
 
 // jQuery form tooltip

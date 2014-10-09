@@ -3,10 +3,10 @@ Things to do:
  ☐ Verifaction on answers (right/wrong) *broken* only checks for first question
  ☐ Trash stacks 
  ☐ Work on editing stacks
- ☐ Showing the correct answers/total answers
  ☐ labeling pie chart
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Showing the correct answers/total answers @done (14-10-09 16:07) @project(Things to do)
  ✔ Add results pages when done with cards @done (14-10-09 11:59) @project(Things to do)
  ✔ call storeAnswers funtion after quiz in complete || render results button after quiz is done @done (14-10-09 11:42) @project(Things to do)
  ✔ Store biggest number first into ratio array @done (14-10-09 09:22) @project(Things to do)

@@ -124,12 +124,12 @@ display: none;
 
 /*Pie chart section*/
 .pie-hide {
-	display:none;
-	opacity: 0;
+display:none;
+opacity: 0;
 }
 
 .pie-show {
-	display: block;
+display: block;
 }
 
 .ct-chart.ct-double-octave>svg, .ct-chart.ct-double-octave {
@@ -147,4 +147,13 @@ display: none;
 .ct-chart .ct-label {
 fill: rgba(0,0,0,.4);
 font-size: 6.75rem;
+}
+
+.ratio-results {
+	float: right;
+}
+
+/*Badges*/
+.badges {
+width: 31%;
 }
