@@ -1,23 +1,34 @@
 var correctAnswers = [0];
 var wrongAnswers = [0];
-var sumCA = _.reduce(correctAnswers);
-var sumWA = _.reduce(wrongAnswers);
-var pie = [sumCA, sumWA];
+var ratio = [];
+
+var storeAnswers = function(){
+	ratio.push(_.reduce((wrongAnswers), function(memo, num){ return memo + num; }, 0));
+	ratio.push(_.reduce((correctAnswers), function(memo, num){ return memo + num; }, 0));
+};
 
 // put it as the value of series below
 $('.saved-stacks').on('click', function(){
 	$('.pie-show').toggleClass('pie-hide');
 });
+var renderPiechart = function(){
+	var data = {
+	  series: ratio
+	};
+	var sum = function(a, b) { return a + b };
 
- var data = {
-  series: [ 1, 2]
+	Chartist.Pie('.ct-chart', data, {
+	  labelInterpolationFnc: function(value) {
+	    return Math.round(value / data.series.reduce(sum) * 100) + '%';
+	  }
+	});
 };
-var sum = function(a, b) { return a + b };
 
-Chartist.Pie('.ct-chart', data, {
-  labelInterpolationFnc: function(value) {
-    return Math.round(value / data.series.reduce(sum) * 100) + '%';
-  }
+
+$('.test-pie').one('click', function(){
+	storeAnswers();
+	$('.container').append('<div class="ct-chart ct-double-octave pie-show pie-hide"></div>');
+	renderPiechart();
 });
 /***END JS FOR PIECHART**/
 

@@ -52,6 +52,8 @@ color: white;
 color: gold;
 }
 
+
+
 /*Sidebar Stack holder*/
 .sidebar {
 position: fixed;
@@ -128,4 +130,8 @@ display: none;
 
 .ct-chart.ct-double-octave>svg, .ct-chart.ct-double-octave {
 z-index: -1;
+}
+
+.fa.fa-pie-chart {
+color: rgb(8, 127, 242);
 }
