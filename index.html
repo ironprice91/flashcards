@@ -31,11 +31,6 @@
 
 	<div class="container">
 
-<!-- Testing adding function to input field for last item in flashcard array -->
-	<form class="changeMe" onsubmit="">
-		<input class="testing-input"  placeholder="TESTING">
-	</form>
-
 		<!-- Card stack holder -->
 	<section class="navbar navbar-inverse sidebar">
 		<h1 class="sidebar-header">Stacks</h1>
@@ -88,7 +83,7 @@
 
 	<!-- Template for Question/Answer section -->
 	<section id="flashcard-section" class="row flashcard-section">
-		<form class="question-answer">
+		<form class="question-answer" onsubmit="">
 			<h1 class="row question">test?<i class="fa fa-check-circle-o"></i><i class="fa fa-times"></i></h1>
 			<input class="row answer" type="text" name="quiz-answer" placeholder="Answer...">
 		</form>

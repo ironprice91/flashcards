@@ -46,13 +46,16 @@ display: none;
 
 .sign-out {
 color: white;
+cursor: pointer;
 }
 
 .fa.fa-star {
 color: gold;
 }
 
-
+.test-pie {
+display: none;
+}
 
 /*Sidebar Stack holder*/
 .sidebar {
@@ -139,4 +142,9 @@ color: rgb(8, 127, 242);
 
 .show-results {
 display: none;
+}
+
+.ct-chart .ct-label {
+fill: rgba(0,0,0,.4);
+font-size: 6.75rem;
 }

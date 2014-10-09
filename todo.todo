@@ -1,12 +1,14 @@
 Things to do:
  ☐ Remove question/answer function in form
- ☐ Add results pages when done with cards
  ☐ Verifaction on answers (right/wrong) *broken* only checks for first question
  ☐ Trash stacks 
- ☐ call storeAnswers funtion after quiz in complete || render results button after quiz is done
  ☐ Work on editing stacks
+ ☐ Showing the correct answers/total answers
+ ☐ labeling pie chart
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Add results pages when done with cards @done (14-10-09 11:59) @project(Things to do)
+ ✔ call storeAnswers funtion after quiz in complete || render results button after quiz is done @done (14-10-09 11:42) @project(Things to do)
  ✔ Store biggest number first into ratio array @done (14-10-09 09:22) @project(Things to do)
  ✔ Store if the answers were right or wrong! @done (14-10-09 08:58) @project(Things to do)
  ✔ Fix adding questions button (adds two on the third add) @done (14-10-08 12:33) @project(Things to do)

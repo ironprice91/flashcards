@@ -27,13 +27,19 @@ var renderPiechart = function(){
 	});
 };
 
-/*TEST*/
-$('.saved-stacks').on('click', function(){
-	$('.changeMe').attr('onsubmit', 'testing()');
-});	
-var testing = function(){
-	alert('YAY! It worked!');
+// Renders the show results button
+var showResults = function(){
+	var resultsButton = $('.test-pie');
+	resultsButton.fadeIn(200);
+	resultsButton.fadeOut(200);
+	resultsButton.fadeIn(200);
 };
+
+/*For future programming*/
+$('.saved-stacks').on('click', function(){
+	alert('shows starred stacks... at some point');
+});	
+
 
 // Render the piechart and run functions
 $('.test-pie').one('click', function(){
@@ -141,7 +147,9 @@ function stackSubmit(){
 		$('.container').append(flashcards[0]);
 		for(var i = 1; i < newStack.cards.length; i++ ){
 			$('.container').append(flashcards[i]);
+			_.last(flashcards).attr('onsubmit', 'showResults()')
 		}
+
 		var index1 = flashcards.indexOf(flashcards[0]);
 		if(index1 >= 0 && index1 < flashcards.length - 1){
 			nextItem = flashcards[index1+1];
@@ -168,50 +176,6 @@ function stackSubmit(){
 
 			});
 		});		
-
-		// last item in the falshcard array to add a submit function to call a function
-		console.log( 'HEY ITS ME! ---' ,_.last(flashcards));
-
-		if($('.question-answer').last()){
-			console.log('yo');
-		}
-
-//Moving to each question attempt on refactoring code below /*****/
-		/*********/
-		// Checking if the answer is correct
-/*		$('.question-answer').each(function(element, index){
-			var questionAnswer = $(this);
-			questionAnswer.on('submit', function(event){
-				event.preventDefault();
-				$('.answer').each(function(element, index){
-					console.log(this);
-					var answer = $(this);
-					$('.question').each(function(element,index){
-						var question = $(this);
-					// Checking answer section
-						for(var i = 0; i < newStack.cards.length; i++){
-							if(answer.eq(i).val() === newStack.cards[i].answer){
-								question.eq(i).append('<i class="fa fa-check-circle-o"></i>');
-								questionAnswer.eq(i).slideUp(300);
-								correctAnswers.push(1);
-								if(null === null){
-									for(var i = 0; i < newStack.cards.length; i++){
-										//$('.container').append($('.question-answer').eq(i).show());
-										for(var q = 1; q <= newStack.cards.length; q++){
-											$('.question-answer').eq(q+1).show();
-											//$('.question').eq(q+1).slideDown(300);					
-											$('.answer').eq(q+1).show();
-										}
-								}
-							} 
-						} else {
-							wrongAnswers.push(1);
-						}
-					}
-				});
-			});
-		});
-	});*/
 });
 
 
