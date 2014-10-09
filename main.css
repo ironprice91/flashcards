@@ -71,6 +71,7 @@ transform: translateX(0);
 
 .sidebar-header {
 color: snow;
+text-decoration: underline;
 }
 
 /*Review section*/

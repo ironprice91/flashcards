@@ -27,6 +27,14 @@ var renderPiechart = function(){
 	});
 };
 
+/*TEST*/
+$('.saved-stacks').on('click', function(){
+	$('.changeMe').attr('onsubmit', 'testing()');
+});	
+var testing = function(){
+	alert('YAY! It worked!');
+};
+
 // Render the piechart and run functions
 $('.test-pie').one('click', function(){
 	storeAnswers();
@@ -161,8 +169,11 @@ function stackSubmit(){
 			});
 		});		
 
-		if($('.question-answer:hidden')){
-					console.log('yo');
+		// last item in the falshcard array to add a submit function to call a function
+		console.log( 'HEY ITS ME! ---' ,_.last(flashcards));
+
+		if($('.question-answer').last()){
+			console.log('yo');
 		}
 
 //Moving to each question attempt on refactoring code below /*****/
