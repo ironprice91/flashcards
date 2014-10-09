@@ -2,7 +2,7 @@
 // Find uniq values(1) in correct answer and put into array
 // put it as the value of series below
 $('.saved-stacks').on('click', function(){
-	$('.pie-show').removeClass('pie-hide');
+	$('.pie-show').toggleClass('pie-hide');
 });
 
  var data = {
@@ -35,7 +35,6 @@ $('.add-new-question').on('click', function(){
 	$('.stack-form').append(newQuestion);
 
 });
-
 
 
 // Toggle stack menu
@@ -105,7 +104,6 @@ function stackSubmit(){
 	var stackName = stackForm.find('[name=stack-name]').val();
 	var newStack = new FlashcardStack(stackName);
 
-
 	$('.sidebar').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
 
 	// Clicking the stackname button GO! function
@@ -120,37 +118,67 @@ function stackSubmit(){
 			.find('h1')
 			.text(newStack.cards[i].question);
 			flashcards.push(newFlashCard);
-			$('.container').append(newFlashCard);
-				if($('.question-answer').eq(i+1)){
-					$('.question-answer').eq(i+i).hide();
-			}
 		}
+	
+	
+		// append 1st item in flashcards array
+		$('.container').append(flashcards[0]);
+		for(var i = 1; i < newStack.cards.length; i++ ){
+			$('.container').append(flashcards[i]);
+		}
+		var index1 = flashcards.indexOf(flashcards[0]);
+		if(index1 >= 0 && index1 < flashcards.length - 1){
+			nextItem = flashcards[index1+1];
+		}
+		var remove;
+		console.log(flashcards.indexOf(nextItem));
+		$('.question-answer').each(function(element, index){
+			var that = $(this);
+			that.on('submit', function(e){
+				e.preventDefault();
+				var that = $(this);
+				if($('.answer').eq(index1).val() === newStack.cards[index1].answer){
+					$('.question').append('<i class="fa fa-check-circle-o"></i>');
+					that.slideUp(300);
+					remove = window.setTimeout(function(){that.remove();},1000);
+					//$('.container').append(flashcards[flashcards.indexOf(nextItem)]);
+					correctAnswers.push(1);
+				} else {
+					$('.question').append('<i class="fa fa-times"></i>');
+					that.slideUp(300);
+					wrongAnswers.push(1);
+					//$('.container').append(flashcards[flashcards.indexOf(nextItem)]);
+				}
+			});
+		});		
+
+		
+		
 
 
 //Moving to each question attempt on refactoring code below /*****/
 
-/*		$('.question-answer').each(function(element, index){
+	/*	$('.question-answer').each(function(element, index){
 			var that = $(this);
 			that.on('submit', function(event){
 				event.preventDefault();
-				console.log(newStack.cards[0].answer);
-				if($('.answer').eq(1).val() === newStack.cards[0].answer){
-					$('.question').append('<i class="fa fa-check-circle-o"></i>');
-					that.slideUp(300);
-					console.log(that.eq(1));
-					$('.question-answer').eq(2).show(300);
-				} else {
-					$('.question').append('<i class="fa fa-times"></i>');
-					that.slideUp(300);
-					$('.question-answer').eq(2).show(300);
-				}
+				for(var i = 0; i < newStack.cards.length; i++){
+					if($('.answer').index(i).val() === newStack.cards[i].answer){
+						$('.question').append('<i class="fa fa-check-circle-o"></i>');
+						that.slideUp(300);
+						$('.question-answer').eq(i+1).show(300);
+					} else {
+						
+						that.slideUp(300);
+					} 
+				} 
 			});
 		});*/
 
 
 		/*********/
 		// Checking if the answer is correct
-		$('.question-answer').each(function(element, index){
+/*		$('.question-answer').each(function(element, index){
 			var questionAnswer = $(this);
 			questionAnswer.on('submit', function(event){
 				event.preventDefault();
@@ -182,7 +210,7 @@ function stackSubmit(){
 				});
 			});
 		});
-	});
+	});*/
 });
 
 
@@ -199,6 +227,19 @@ function stackSubmit(){
 	// Render review section on click of the stack
 	$('.toggle-stack').on('click', function(){
 		newStack.renderCards();
+	});
+
+	//Edit quiz in review section /*For Future work*/
+	$('.edit-quiz').on('click', function(){
+		$('.question-form2')
+		.find('h3')
+		.text(newStack.name);
+		$('.flashcard-form').each(function(element, index){
+			$(this).find('[name=question]')
+			.val(newStack.cards.question)
+			.find('[name=answer]')
+			.val(newStack.cards.answer);
+		});
 	});
 
 };
