@@ -228,27 +228,16 @@ $('.remove-question').on('click', function(){
 	console.log('blah');
 });
 
-// Bootstrap tour
+// Joyride tour
 // Instance the tour
-var tour = new Tour({
-  steps: [
-  {
-    element: ".new-stack-toggle",
-    title: "Title of my step",
-    content: "Content of my step"
-  },
-  {
-    element: ".toggle-menu",
-    title: "Title of my step",
-    content: "Content of my step"
-  }
-]});
 
-// Initialize the tour
-tour.init();
+$(window).load(function() {
+  $(".new-stack-toggle").joyride({
+  	'tipLocation': 'bottom', 
+  	 'tipContainer': body 
+  });
+});
 
-// Start the tour
-tour.start();
 
 ////////////////
 // TEST UNITS //
