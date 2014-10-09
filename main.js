@@ -1,14 +1,18 @@
+// Arrays for storing if the question is right or wrong
 var correctAnswers = [0];
 var wrongAnswers = [0];
 var ratio = [];
 
+// Store answers into ratio and 
 var storeAnswers = function(){
-	ratio.push(_.reduce((wrongAnswers), function(memo, num){ return memo + num; }, 0));
-	ratio.push(_.reduce((correctAnswers), function(memo, num){ return memo + num; }, 0));
+	var sumWrongAnswers = _.reduce((wrongAnswers), function(memo, num){ return memo + num; }, 0);
+	var sumCorrectAnswers = _.reduce((correctAnswers), function(memo, num){ return memo + num; }, 0);
+	(sumCorrectAnswers > sumWrongAnswers) ?	ratio.push(sumCorrectAnswers) && ratio.push(sumWrongAnswers) : ratio.push(sumWrongAnswers) && ratio.push(sumCorrectAnswers); 
+
 };
 
 // put it as the value of series below
-$('.saved-stacks').on('click', function(){
+$('.saved-stacks').on('click', function(){ 
 	$('.pie-show').toggleClass('pie-hide');
 });
 var renderPiechart = function(){
@@ -178,25 +182,6 @@ function stackSubmit(){
 
 
 //Moving to each question attempt on refactoring code below /*****/
-
-	/*	$('.question-answer').each(function(element, index){
-			var that = $(this);
-			that.on('submit', function(event){
-				event.preventDefault();
-				for(var i = 0; i < newStack.cards.length; i++){
-					if($('.answer').index(i).val() === newStack.cards[i].answer){
-						$('.question').append('<i class="fa fa-check-circle-o"></i>');
-						that.slideUp(300);
-						$('.question-answer').eq(i+1).show(300);
-					} else {
-						
-						that.slideUp(300);
-					} 
-				} 
-			});
-		});*/
-
-
 		/*********/
 		// Checking if the answer is correct
 /*		$('.question-answer').each(function(element, index){
@@ -279,26 +264,6 @@ $('.new-stack').on('submit', function(event){
 		var answer = questions.find('[name=answer]').val('');
 	});
 });
-
-// oop form submit
-/*FlashcardStack.prototype.onSubmit = function() {
-
-	var stackForm = $('.new-stack');
-	var stackName = stackForm.find('[name=stack-name]').val();
-	var newStack = new FlashcardStack(stackName);
-
-	$('.custom-nav').append('<button class="btn btn-default toggle-stack">' + newStack.name + '</button>');
-
-	$('.flashcard-form').each(function(element, index){
-		var questions = $(this);
-		var question = questions.find('[name=question]').val();
-		var answer = questions.find('[name=answer]').val();
-		var cards = new Flashcard(question, answer);
-		console.log(cards);
-		newStack.cards.push(cards);
-	});
-	$('.submit-stack').on('submit', newStack.onSubmit.bind(this));
-};*/
 
 
 ////////////////
