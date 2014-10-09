@@ -135,3 +135,7 @@ z-index: -1;
 .fa.fa-pie-chart {
 color: rgb(8, 127, 242);
 }
+
+.show-results {
+display: none;
+}

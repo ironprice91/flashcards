@@ -2,6 +2,8 @@
 var correctAnswers = [0];
 var wrongAnswers = [0];
 var ratio = [];
+// holding flash card views
+var flashcards = [];
 
 // Store answers into ratio and 
 var storeAnswers = function(){
@@ -11,10 +13,7 @@ var storeAnswers = function(){
 
 };
 
-// put it as the value of series below
-$('.saved-stacks').on('click', function(){ 
-	$('.pie-show').toggleClass('pie-hide');
-});
+// Render piechart with user data on questions function
 var renderPiechart = function(){
 	var data = {
 	  series: ratio
@@ -28,33 +27,25 @@ var renderPiechart = function(){
 	});
 };
 
-
+// Render the piechart and run functions
 $('.test-pie').one('click', function(){
 	storeAnswers();
-	$('.container').append('<div class="ct-chart ct-double-octave pie-show pie-hide"></div>');
+	$('.col-md-4').append('<div class="ct-chart ct-square pie-show pie-hide"></div>');
 	renderPiechart();
+	$('.show-results').removeClass('show-results');
+	$('.pie-show').toggleClass('pie-hide');
 });
-/***END JS FOR PIECHART**/
-
-
-
-// Sum these arrays indiv
-// .concat these arrays above^
-// use in data above^
 
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
 
 // Adding a new question field
 $('.add-new-question').on('click', function(){
-
 	var newQuestion = $('#flashcard-form').clone();
 	newQuestion
 	.attr('id', '')
 	.addClass('flashcard-form');
-
 	$('.stack-form').append(newQuestion);
-
 });
 
 
@@ -102,7 +93,6 @@ FlashcardStack.prototype.renderCards = function() {
 	}
 };
 
-
 // function to store the flashcard arguement
 FlashcardStack.prototype.store = function(flashcard){
 	var cardStack = this.cards;
@@ -115,9 +105,6 @@ $('.start-quiz').on('click', function(){
 	$('.review-show').hide();
 	$('.answer-section').hide();
 });
-
-// holding flash card views
-var flashcards = [];
 
 // Taking values and making it into a new stack of cards
 function stackSubmit(){
@@ -177,9 +164,6 @@ function stackSubmit(){
 		if($('.question-answer:hidden')){
 					console.log('yo');
 		}
-		
-		
-
 
 //Moving to each question attempt on refactoring code below /*****/
 		/*********/

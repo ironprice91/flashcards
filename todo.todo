@@ -1,9 +1,10 @@
 Things to do:
  ☐ Remove question/answer function in form
  ☐ Add results pages when done with cards
- ☐ Verifaction on answers (right/wrong)
+ ☐ Verifaction on answers (right/wrong) *broken* only checks for first question
  ☐ Trash stacks 
- ☐ call storeAnswers funtion after quiz in complete
+ ☐ call storeAnswers funtion after quiz in complete || render results button after quiz is done
+ ☐ Work on editing stacks
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ Store biggest number first into ratio array @done (14-10-09 09:22) @project(Things to do)
