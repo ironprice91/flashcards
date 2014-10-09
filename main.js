@@ -1,12 +1,16 @@
-// array for the pie chart
-// Find uniq values(1) in correct answer and put into array
+var correctAnswers = [0];
+var wrongAnswers = [0];
+var sumCA = _.reduce(correctAnswers);
+var sumWA = _.reduce(wrongAnswers);
+var pie = [sumCA, sumWA];
+
 // put it as the value of series below
 $('.saved-stacks').on('click', function(){
 	$('.pie-show').toggleClass('pie-hide');
 });
 
  var data = {
-  series: [5,2]
+  series: [ 1, 2]
 };
 var sum = function(a, b) { return a + b };
 
@@ -17,9 +21,11 @@ Chartist.Pie('.ct-chart', data, {
 });
 /***END JS FOR PIECHART**/
 
-var correctAnswers = [];
-var wrongAnswers = [];
-_.uniq(correctAnswers);
+
+
+// Sum these arrays indiv
+// .concat these arrays above^
+// use in data above^
 
 // jQuery form tooltip
 $('[data-toggle="tooltip"]').tooltip({'placement': 'right'});
@@ -137,7 +143,7 @@ function stackSubmit(){
 			that.on('submit', function(e){
 				e.preventDefault();
 				var that = $(this);
-				if($('.answer').eq(index1).val() === newStack.cards[index1].answer){
+				if($('.answer').eq(index1+1).val() === newStack.cards[index1].answer){
 					$('.question').append('<i class="fa fa-check-circle-o"></i>');
 					that.slideUp(300);
 					remove = window.setTimeout(function(){that.remove();},1000);
@@ -149,9 +155,13 @@ function stackSubmit(){
 					wrongAnswers.push(1);
 					//$('.container').append(flashcards[flashcards.indexOf(nextItem)]);
 				}
+
 			});
 		});		
 
+		if($('.question-answer:hidden')){
+					console.log('yo');
+		}
 		
 		
 
